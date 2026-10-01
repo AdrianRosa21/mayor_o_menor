@@ -17,8 +17,10 @@
   transition: background 0.15s;
 }
 
-.probabilidad__alternar:hover {
-  background: rgba(230, 196, 111, 0.15);
+@media (hover: hover) {
+  .probabilidad__alternar:hover {
+    background: rgba(230, 196, 111, 0.15);
+  }
 }
 
 .probabilidad__total {

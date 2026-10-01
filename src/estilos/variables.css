@@ -13,7 +13,7 @@
 
   /* Texto (todos con buen contraste sobre el fondo verde) */
   --texto: #f7f1e1;
-  --texto-suave: #bfd3c6;
+  --texto-suave: #e6f0e9;
 
   /* Estados del juego */
   --acierto: #6be09b;
@@ -33,7 +33,7 @@
   --fuente-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --fuente-texto: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  /* Tamaño de la carta: crece con la altura de la ventana (celular, laptop, proyector) */
-  --carta-ancho: clamp(7.5rem, 26dvh, 14rem);
+  /* Tamaño de la carta: depende del alto y del ancho de la ventana (celular, laptop, proyector) */
+  --carta-ancho: clamp(7.5rem, min(22dvh, 34vw), 14rem);
   --proporcion-carta: 226 / 314; /* medidas de las imágenes de la API */
 }

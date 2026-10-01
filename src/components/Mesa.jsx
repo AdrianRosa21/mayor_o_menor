@@ -1,9 +1,10 @@
 import Carta from './Carta.jsx';
 import './Mesa.css';
 
-// La mesa de fieltro: el mazo a la izquierda y la carta actual en el centro.
-// claveCarta cambia con cada carta nueva para que se repita la animación de volteo.
-function Mesa({ carta, restantes, claveCarta, esperando }) {
+// La mesa de fieltro: el mazo a la izquierda, la carta actual en el centro y la
+// carta anterior a la derecha. claveCarta cambia con cada carta nueva para que
+// se repita la animación de volteo.
+function Mesa({ carta, cartaAnterior, restantes, claveCarta, esperando }) {
   const textoRestantes =
     restantes <= 0
       ? 'Mazo vacío: se barajará uno nuevo'
@@ -23,6 +24,15 @@ function Mesa({ carta, restantes, claveCarta, esperando }) {
       <div className="mesa__carta">
         <Carta key={claveCarta} carta={carta} animada />
         <p className="mesa__etiqueta">Carta actual</p>
+      </div>
+
+      <div className="mesa__anterior">
+        {cartaAnterior ? (
+          <Carta key={`${claveCarta}-anterior`} carta={cartaAnterior} tamano="media" />
+        ) : (
+          <div className="mesa__hueco" aria-hidden="true" />
+        )}
+        <p className="mesa__etiqueta">Carta anterior</p>
       </div>
     </section>
   );

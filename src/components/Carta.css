@@ -5,6 +5,10 @@
   perspective: 1000px; /* da profundidad al volteo 3D */
 }
 
+.carta--media {
+  --ancho: calc(var(--carta-ancho) * 0.6);
+}
+
 .carta--mini {
   --ancho: 3.4rem;
 }

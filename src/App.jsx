@@ -36,6 +36,7 @@ function App() {
           />
           <Mesa
             carta={juego.cartaActual}
+            cartaAnterior={juego.cartaAnterior}
             restantes={juego.restantes}
             claveCarta={`${juego.totalJugadas}-${juego.cartaActual.codigo}`}
             esperando={juego.cargandoCarta}

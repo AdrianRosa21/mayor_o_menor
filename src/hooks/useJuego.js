@@ -44,6 +44,7 @@ export function useJuego() {
   const [idMazo, setIdMazo] = useState(null);
   const [restantes, setRestantes] = useState(0);
   const [cartaActual, setCartaActual] = useState(null);
+  const [cartaAnterior, setCartaAnterior] = useState(null);
   const [cartasSacadas, setCartasSacadas] = useState([]); // las que ya salieron del mazo actual
 
   // --- Marcador ---
@@ -112,6 +113,7 @@ export function useJuego() {
     setError(null);
     setIdMazo(null);
     setCartaActual(null);
+    setCartaAnterior(null);
     setCartasSacadas([]);
     setRestantes(0);
     setPuntos(0);
@@ -166,6 +168,7 @@ export function useJuego() {
         setIdMazo(idDelMazo);
         setRestantes(quedan);
         setCartasSacadas([...sacadasDelMazo, carta]);
+        setCartaAnterior(cartaActual);
         setCartaActual(carta);
         setTotalJugadas(totalJugadas + 1);
         setHistorial(
@@ -245,6 +248,7 @@ export function useJuego() {
   return {
     // Datos
     cartaActual,
+    cartaAnterior,
     restantes,
     puntos,
     vidas,
