@@ -1,0 +1,26 @@
+# Dependencias
+node_modules/
+
+# Resultado del build
+dist/
+dist-ssr/
+
+# Pruebas y reportes
+coverage/
+
+# Variables de entorno (la app no usa ninguna, pero por si se agregan)
+.env
+.env.*
+!.env.example
+
+# Registros
+*.log
+npm-debug.log*
+
+# Editores y sistema operativo
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.local
