@@ -1,0 +1,39 @@
+/* Variables de diseño: colores, tipografías y medidas que usa toda la app */
+:root {
+  /* Verdes de la mesa (de más oscuro a más claro) */
+  --verde-profundo: #04170f;
+  --verde-oscuro: #072a1c;
+  --verde-mesa: #0d4a31;
+  --verde-fieltro: #17683f;
+
+  /* Acentos */
+  --dorado: #e6c46f;
+  --dorado-fuerte: #c99a2e;
+  --crema: #f7f1e1;
+
+  /* Texto (todos con buen contraste sobre el fondo verde) */
+  --texto: #f7f1e1;
+  --texto-suave: #bfd3c6;
+
+  /* Estados del juego */
+  --acierto: #6be09b;
+  --fallo: #ff8a8a;
+  --empate: #ffd666;
+  --mayor: #6be09b;
+  --menor: #7cc0ff;
+  --igual: #ffd666;
+
+  /* Paneles */
+  --panel: rgba(2, 20, 13, 0.55);
+  --borde-panel: rgba(230, 196, 111, 0.28);
+  --sombra: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --radio: 1rem;
+
+  /* Tipografías: si las de Google Fonts no cargan, se usan las de respaldo */
+  --fuente-titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --fuente-texto: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Tamaño de la carta: crece con la altura de la ventana (celular, laptop, proyector) */
+  --carta-ancho: clamp(7.5rem, 26dvh, 14rem);
+  --proporcion-carta: 226 / 314; /* medidas de las imágenes de la API */
+}

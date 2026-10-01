@@ -1,0 +1,128 @@
+/* Estilos globales: reset, fondo de la mesa, foco visible y elementos reutilizables */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* El tamaño base crece con el ancho de pantalla: todo lo demás usa rem y se escala solo */
+html {
+  font-size: clamp(16px, 0.55vw + 10px, 24px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--fuente-texto);
+  line-height: 1.5;
+  color: var(--texto);
+  background-color: var(--verde-profundo);
+}
+
+/* Fondo: fieltro verde con luz al centro y una trama muy sutil */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    repeating-radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 50% 25%, var(--verde-fieltro) 0%, var(--verde-mesa) 38%, var(--verde-oscuro) 72%, var(--verde-profundo) 100%);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Foco visible para quien navega con teclado */
+:focus-visible {
+  outline: 3px solid var(--dorado);
+  outline-offset: 3px;
+}
+
+/* Texto solo para lectores de pantalla */
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Panel con borde dorado, usado por varios componentes */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--borde-panel);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 1rem 1.25rem;
+}
+
+.panel__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dorado);
+}
+
+/* Etiqueta de tecla, ej: ↑ */
+kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 0.05em 0.45em;
+  font-family: var(--fuente-texto);
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid currentColor;
+  border-bottom-width: 2px;
+  border-radius: 0.35em;
+}
+
+/* Dorso de carta, reutilizado en la carta, el mazo y la pantalla de carga */
+.dorso {
+  position: relative;
+  background: repeating-linear-gradient(45deg, #8a1c2b 0 6px, #6f1522 6px 12px);
+  border-radius: 0.7rem;
+  box-shadow:
+    inset 0 0 0 0.3rem var(--crema),
+    inset 0 0 0 0.4rem #8a1c2b;
+}
+
+.dorso::after {
+  content: '♠';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  color: var(--crema);
+  text-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.5);
+}
+
+/* Si la persona prefiere menos movimiento, se reducen las animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

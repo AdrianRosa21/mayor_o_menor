@@ -1,0 +1,111 @@
+.carta {
+  --ancho: var(--carta-ancho);
+  width: var(--ancho);
+  aspect-ratio: var(--proporcion-carta);
+  perspective: 1000px; /* da profundidad al volteo 3D */
+}
+
+.carta--mini {
+  --ancho: 3.4rem;
+}
+
+.carta__giro {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.carta__cara {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden; /* oculta la cara que queda de espaldas */
+}
+
+.carta__cara--dorso {
+  transform: rotateY(180deg);
+  box-shadow:
+    inset 0 0 0 0.3rem var(--crema),
+    inset 0 0 0 0.4rem #8a1c2b,
+    0 0.6rem 1.4rem rgba(0, 0, 0, 0.45);
+}
+
+.carta__cara--dorso::after {
+  font-size: calc(var(--ancho) * 0.3);
+}
+
+.carta__imagen {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  filter: drop-shadow(0 0.6rem 0.8rem rgba(0, 0, 0, 0.45));
+}
+
+.carta--mini .carta__imagen {
+  filter: drop-shadow(0 0.15rem 0.25rem rgba(0, 0, 0, 0.45));
+}
+
+/* Carta dibujada con texto, por si la imagen no carga */
+.carta__dibujo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--crema);
+  border: 2px solid #cfc7b0;
+  border-radius: 0.7rem;
+  color: #14231b;
+  font-family: var(--fuente-titulo);
+  box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.4);
+}
+
+.carta__dibujo--roja {
+  color: #b3202f;
+}
+
+.carta__esquina {
+  position: absolute;
+  top: 6%;
+  left: 9%;
+  font-size: calc(var(--ancho) * 0.2);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.carta__centro {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--ancho) * 0.5);
+}
+
+/* Estado inicial de una carta animada: boca abajo */
+.carta--animada .carta__giro {
+  transform: rotateY(180deg);
+}
+
+/* Cuando la imagen está lista, se voltea con una animación de 0.7 segundos */
+.carta--animada.carta--descubierta .carta__giro {
+  animation: carta-voltear 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes carta-voltear {
+  from {
+    transform: rotateY(180deg) translateY(-0.8rem) scale(0.96);
+  }
+  to {
+    transform: rotateY(0) translateY(0) scale(1);
+  }
+}
+
+/* Con "reducir movimiento" no se voltea: la carta simplemente aparece */
+@media (prefers-reduced-motion: reduce) {
+  .carta--animada .carta__giro,
+  .carta--animada.carta--descubierta .carta__giro {
+    transform: none;
+    animation: none;
+  }
+}

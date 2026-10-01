@@ -1,0 +1,33 @@
+.error-api {
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  border-color: var(--fallo);
+}
+
+.error-api__texto {
+  font-weight: 600;
+  color: var(--crema);
+}
+
+.error-api__boton {
+  padding: 0.7rem 1.6rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2a1d03;
+  background: linear-gradient(#f3d98b, #d9b45b);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 0.3rem 0 rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.15s,
+    filter 0.15s;
+}
+
+.error-api__boton:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}

@@ -1,0 +1,84 @@
+/* Capa que cubre la pantalla pero no bloquea los clics */
+.celebracion {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.celebracion__pieza {
+  position: absolute;
+  top: 0;
+  left: var(--izquierda);
+  width: 0.6rem;
+  height: 1rem;
+  background: var(--color);
+  border-radius: 0.1rem;
+  opacity: 0;
+  animation: celebracion-caer var(--duracion) ease-in var(--retraso) both;
+}
+
+.celebracion__letrero {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  padding: 0.6rem 1.6rem;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-weight: 800;
+  white-space: nowrap;
+  color: #2a1d03;
+  background: linear-gradient(#f3d98b, #d9b45b);
+  border-radius: 999px;
+  box-shadow: 0 0 3rem rgba(230, 196, 111, 0.8);
+  opacity: 0;
+  animation: celebracion-letrero 2.2s ease-out both;
+}
+
+@keyframes celebracion-caer {
+  0% {
+    transform: translateY(-5vh) rotate(0);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(var(--giro));
+    opacity: 0;
+  }
+}
+
+@keyframes celebracion-letrero {
+  0% {
+    transform: translate(-50%, 1rem) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    transform: translate(-50%, 0) scale(1.1);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  80% {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -1rem) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Sin movimiento: no hay confeti, solo el letrero que aparece y se va */
+@media (prefers-reduced-motion: reduce) {
+  .celebracion__pieza {
+    display: none;
+  }
+
+  .celebracion__letrero {
+    animation-duration: 2.2s !important;
+  }
+}

@@ -1,0 +1,35 @@
+/* Distribución general de la pantalla */
+.aplicacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100dvh;
+  padding: 1rem 1rem 2.5rem;
+}
+
+.contenido {
+  width: 100%;
+  max-width: 72rem;
+}
+
+.juego {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.juego__principal,
+.juego__lateral {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+/* Pantallas anchas: la mesa a la izquierda y las ayudas a la derecha */
+@media (min-width: 62rem) {
+  .juego {
+    grid-template-columns: minmax(0, 1.6fr) minmax(19rem, 1fr);
+    align-items: start;
+    gap: 1.75rem;
+  }
+}

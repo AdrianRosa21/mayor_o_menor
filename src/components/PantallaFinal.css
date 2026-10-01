@@ -1,0 +1,123 @@
+.final {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(2, 14, 9, 0.8);
+  backdrop-filter: blur(6px);
+  /* Espera un momento para que se vea la carta que quitó la última vida */
+  animation: final-fondo 0.5s ease-out 1.1s both;
+}
+
+.final__ventana {
+  width: min(100%, 30rem);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(160deg, #0f5236, #072a1c);
+  border: 2px solid var(--dorado);
+  border-radius: 1.5rem;
+  box-shadow:
+    0 0 0 0.4rem rgba(4, 23, 15, 0.6),
+    0 1.5rem 4rem rgba(0, 0, 0, 0.6);
+  animation: final-ventana 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) 1.1s both;
+}
+
+.final__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.2rem, 8vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--dorado);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.final__descripcion {
+  margin-top: 0.4rem;
+  color: var(--texto-suave);
+}
+
+.final__datos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.final__dato {
+  padding: 0.8rem 0.3rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--borde-panel);
+  border-radius: 0.8rem;
+}
+
+.final__dato dt {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.final__dato dd {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--crema);
+}
+
+.final__record {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--dorado);
+}
+
+.final__boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+  padding: 0.9rem 1.8rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2a1d03;
+  background: linear-gradient(#f3d98b, #d9b45b);
+  border: 0;
+  border-radius: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 0.35rem 0 rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.15s,
+    filter 0.15s;
+}
+
+.final__boton kbd {
+  font-size: 0.7rem;
+  opacity: 0.75;
+}
+
+.final__boton:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+@keyframes final-fondo {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes final-ventana {
+  from {
+    transform: translateY(1.5rem) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .final__boton kbd {
+    display: none;
+  }
+}

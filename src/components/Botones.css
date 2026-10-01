@@ -1,0 +1,98 @@
+.botones {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.botones__fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border: 0;
+  border-radius: 0.9rem;
+  cursor: pointer;
+  box-shadow:
+    0 0.35rem 0 rgba(0, 0, 0, 0.35),
+    0 0.8rem 1.4rem rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    filter 0.15s;
+}
+
+/* Mayor: dorado. Menor: crema. Ambos con texto oscuro para buen contraste */
+.boton--mayor {
+  color: #2a1d03;
+  background: linear-gradient(#f3d98b, #d9b45b);
+}
+
+.boton--menor {
+  color: #10281d;
+  background: linear-gradient(#f9f4e6, #d8d0b8);
+}
+
+.boton__flecha {
+  font-size: 0.95em;
+}
+
+.boton kbd {
+  font-size: 0.7rem;
+  opacity: 0.75;
+}
+
+.boton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+.boton:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.35);
+}
+
+.boton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  filter: grayscale(0.5);
+}
+
+.botones__estado {
+  min-height: 1.5rem; /* reserva el espacio para que la pantalla no salte */
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--dorado);
+}
+
+.botones__atajos {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+/* En celulares y tabletas no hay teclado: se ocultan los atajos */
+@media (hover: none) and (pointer: coarse) {
+  .botones__atajos,
+  .boton kbd {
+    display: none;
+  }
+}
+
+@media (max-width: 30rem) {
+  .botones__fila {
+    gap: 0.6rem;
+  }
+
+  .boton {
+    padding: 0.8rem 0.5rem;
+    font-size: 1.1rem;
+  }
+}

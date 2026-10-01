@@ -1,0 +1,57 @@
+.historial__vacio {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.historial__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 0.6rem;
+  padding: 0;
+  margin: 0.8rem 0 0;
+  list-style: none;
+}
+
+.historial__jugada {
+  position: relative;
+  padding-bottom: 0.4rem;
+  animation: historial-entrar 0.4s ease-out;
+}
+
+/* Insignia con el resultado, pegada a la esquina de la miniatura */
+.historial__marca {
+  position: absolute;
+  right: -0.4rem;
+  bottom: -0.1rem;
+  display: grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #06261a;
+  border: 2px solid var(--verde-oscuro);
+  border-radius: 50%;
+}
+
+.historial__jugada--acierto .historial__marca {
+  background: var(--acierto);
+}
+.historial__jugada--fallo .historial__marca {
+  background: var(--fallo);
+}
+.historial__jugada--empate .historial__marca {
+  background: var(--empate);
+}
+
+@keyframes historial-entrar {
+  from {
+    transform: translateX(-0.8rem) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,71 @@
+.probabilidad__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.probabilidad__alternar {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dorado);
+  background: transparent;
+  border: 1px solid var(--dorado);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.probabilidad__alternar:hover {
+  background: rgba(230, 196, 111, 0.15);
+}
+
+.probabilidad__total {
+  margin: 0.75rem 0 0.6rem;
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+}
+
+.probabilidad__lista {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.probabilidad__texto {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.probabilidad__cartas {
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+}
+
+.probabilidad__barra {
+  height: 0.55rem;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 999px;
+}
+
+.probabilidad__relleno {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease-out;
+}
+
+.probabilidad__relleno--mayor {
+  background: var(--mayor);
+}
+.probabilidad__relleno--menor {
+  background: var(--menor);
+}
+.probabilidad__relleno--igual {
+  background: var(--igual);
+}
